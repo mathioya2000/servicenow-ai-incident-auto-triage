@@ -1,16 +1,45 @@
+import os
+import json
+from openai import OpenAI
+from dotenv import load_dotenv
+
+load_dotenv()
+
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+
 def analyze_incident(incident):
-    return {
-        "predicted_category": "Network",
-        "predicted_subcategory": "VPN",
-        "suggested_assignment_group": "Network Support",
-        "recommended_priority": "2 - High",
-        "business_impact": "Remote employees may be unable to access company systems, affecting productivity and service delivery.",
-        "troubleshooting_steps": [
-            "Check VPN gateway status",
-            "Review authentication logs",
-            "Confirm if issue affects one user or multiple users",
-            "Verify recent network or identity provider changes"
+    prompt = f"""
+You are an expert ServiceNow ITSM incident triage assistant.
+
+Analyze this incident and return ONLY valid JSON.
+
+Incident:
+Short Description: {incident.short_description}
+Description: {incident.description}
+Category: {incident.category}
+
+Return:
+{{
+  "predicted_category": "",
+  "predicted_subcategory": "",
+  "suggested_assignment_group": "",
+  "recommended_priority": "",
+  "business_impact": "",
+  "troubleshooting_steps": [],
+  "confidence_score": 0.0,
+  "escalation_required": false
+}}
+"""
+
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[
+            {"role": "system", "content": "You are a ServiceNow ITSM expert."},
+            {"role": "user", "content": prompt}
         ],
-        "confidence_score": 0.86,
-        "escalation_required": True
-    }
+        temperature=0.2
+    )
+
+    content = response.choices[0].message.content
+    return json.loads(content)
