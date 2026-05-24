@@ -1,286 +1,91 @@
-# ServiceNow AI Incident Auto-Triage & Intelligent Routing Assistant
+# Joseph Mwangi
 
-## Overview
+## ServiceNow Developer | ServiceNow Administrator | AI Integration Engineer
 
-An AI-powered ServiceNow incident triage automation platform that analyzes incoming incidents, determines business impact, recommends priority, routes incidents to the correct assignment group, and automatically assigns technicians using round-robin workload balancing.
+I build enterprise workflow automation solutions combining ServiceNow, AI, APIs, and operational intelligence.
 
-This project demonstrates enterprise ServiceNow + AI integration using FastAPI, OpenAI, REST APIs, Business Rules, GlideRecord, and intelligent routing logic.
-
----
-
-## Business Problem
-
-Traditional incident triage is manual, inconsistent, and slow.
-
-Common challenges:
-
-- incorrect assignment groups
-- delayed incident routing
-- inconsistent prioritization
-- overloaded technicians
-- slow response times
-- SLA breaches
-- lack of business impact reasoning
-
-This project automates those decisions using AI.
+Focused on:
+- ServiceNow ITSM automation
+- AI-powered incident management
+- CMDB / CSDM intelligence
+- OpenAI integrations
+- FastAPI backend development
+- workflow automation
+- enterprise AI assistants
 
 ---
 
-## Solution
+## Featured Projects
 
-This solution integrates ServiceNow with an AI decision engine that:
+### ServiceNow AI Incident Auto-Triage & Intelligent Routing
+AI-powered incident classification, priority recommendation, intelligent routing, SLA-aware triage, and round-robin technician assignment.
 
-- analyzes incident descriptions
-- classifies incidents
-- determines business impact
-- recommends ServiceNow priority
-- maps incidents to correct assignment groups
-- assigns technicians using round-robin logic
-- updates incidents automatically
+Tech:
+ServiceNow, Business Rules, RESTMessageV2, GlideRecord, FastAPI, OpenAI API, Python
 
----
-
-## Key Features
-
-### AI Incident Classification
-Examples:
-
-- Email outage
-- VPN access failures
-- Phishing/security incidents
-- Software/application issues
-- Database incidents
-- Clinical/EMR incidents
+Repository:
+https://github.com/mathioya2000/servicenow-ai-incident-auto-triage
 
 ---
 
-### Intelligent Priority Recommendation
+### ServiceNow AI Incident Copilot
+AI assistant for incident summarization, triage support, business impact reasoning, and troubleshooting guidance.
 
-Automatically aligns AI recommendations to ServiceNow priority matrix.
-
-Example:
-
-AI recommends:
-
-Priority 2 - High
-
-ServiceNow updates:
-
-- Impact = 1 - High
-- Urgency = 2 - Medium
-- Priority = 2 - High
+Repository:
+https://github.com/mathioya2000/servicenow-ai-incident-copilot
 
 ---
 
-### Intelligent Assignment Group Routing
+### ServiceNow AI CMDB Impact Analyzer
+AI-assisted CMDB dependency and impact analysis for operational decision-making.
 
-Examples:
-
-| Incident Type | Assignment Group |
-|--------------|------------------|
-| Email / Messaging | Service Desk |
-| VPN / Network | Network Support |
-| Security / Phishing | Security Team |
-| Database | Database |
-| Clinical / EMR | Clinical IT Support |
-| Software | Software |
-| Change | Change Management |
-| Problem | Problem Solving |
+Repository:
+https://github.com/mathioya2000/servicenow-ai-cmdb-impact-analyzer
 
 ---
 
-### Round-Robin Technician Assignment
-
-Automatically distributes incidents fairly:
-
-Incident 1 → Technician A  
-Incident 2 → Technician B  
-Incident 3 → Technician C  
-Incident 4 → Technician A
-
-Prevents technician overload.
+### ServiceNow AI Change Risk Advisor
+AI-assisted change risk analysis for smarter change management decisions.
 
 ---
 
-### ServiceNow Auto Updates
-
-Automatically updates:
-
-- Assignment Group
-- Assigned To
-- Priority
-- Impact
-- Urgency
-- Work Notes
-- SLA activation
+### ServiceNow AI Problem RCA Assistant
+AI-powered root cause analysis support for recurring incident investigation.
 
 ---
 
-## Architecture
-
-```text
-ServiceNow Incident
-        ↓
-Business Rule
-        ↓
-REST Message
-        ↓
-ngrok Public Endpoint
-        ↓
-FastAPI Backend
-        ↓
-OpenAI Decision Engine
-        ↓
-JSON Structured Response
-        ↓
-ServiceNow Updates:
-  - Priority
-  - Impact
-  - Urgency
-  - Assignment Group
-  - Assigned Technician
-  - Work Notes
-  - SLA
-```
+### ServiceNow AI Virtual Agent / Employee Support Assistant
+AI-powered employee self-service support assistant.
 
 ---
 
-## Technology Stack
+## Core Skills
 
-### ServiceNow
-- Business Rules
-- RESTMessageV2
-- GlideRecord
-- Incident Management
-- Assignment Group Routing
-- Round-Robin Automation
-- SLA Engine
-
-### Backend
-- Python
-- FastAPI
-- Uvicorn
-
-### AI
-- OpenAI API
-- Prompt Engineering
-- Structured JSON Responses
-
-### Integration
-- REST APIs
-- ngrok
+ServiceNow  
+ITSM  
+Incident Management  
+Problem Management  
+Change Management  
+CMDB  
+CSDM  
+Business Rules  
+REST APIs  
+GlideRecord  
+FastAPI  
+Python  
+OpenAI API  
+Prompt Engineering  
+AI Workflow Automation  
+Enterprise Integrations  
 
 ---
 
-## API Example
+## Currently Building
 
-### Request
-
-```json
-{
-  "short_description": "VPN login failures",
-  "description": "Multiple remote employees cannot connect after password reset",
-  "category": "network"
-}
-```
-
-### Response
-
-```json
-{
-  "predicted_category": "Network",
-  "predicted_subcategory": "VPN",
-  "suggested_assignment_group": "Network Operations",
-  "recommended_priority": "Priority 2 - High",
-  "impact": "Multiple users affected",
-  "urgency": "High",
-  "business_impact": "Remote work capabilities impacted",
-  "routing_reason": "Multiple VPN failures detected",
-  "confidence_score": 0.85
-}
-```
+Enterprise AI automation projects that combine ServiceNow operational workflows with modern AI decision support.
 
 ---
 
-## Screenshots
+## Contact
 
-Add screenshots here:
-
-- Swagger API test
-- ServiceNow incident before AI
-- ServiceNow incident after AI triage
-- Assignment group routing
-- Round-robin assignment
-- SLA activation
-
----
-
-## Business Value
-
-This solution improves:
-
-- faster triage
-- better routing accuracy
-- fair technician workload distribution
-- improved SLA compliance
-- reduced manual effort
-- faster incident response
-
----
-
-## Interview Talking Points
-
-This project demonstrates:
-
-- ServiceNow development
-- AI integration
-- API design
-- REST integrations
-- business automation
-- ITSM operational thinking
-- assignment routing logic
-- round-robin workload balancing
-- enterprise architecture design
-
----
-
-## Future Enhancements
-
-- CMDB impact analysis
-- CSDM service mapping
-- incident similarity detection
-- AI knowledge article suggestions
-- incident clustering
-- dashboard analytics
-- deployment to cloud hosting
-
----
-
-## Architecture Diagram
-
-
-flowchart TD
-    A[ServiceNow Incident Created] --> B[Business Rule: AI Incident Auto Triage]
-    B --> C[REST Message: Triage Incident]
-    C --> D[ngrok Public Endpoint]
-    D --> E[FastAPI Backend]
-    E --> F[OpenAI Decision Engine]
-    F --> G[Structured JSON Response]
-
-    G --> H[Update Work Notes]
-    G --> I[Set Impact]
-    G --> J[Set Urgency]
-    G --> K[Set Priority]
-    G --> L[Route Assignment Group]
-    G --> M[Round-Robin Technician Assignment]
-
-    L --> N[Service Desk]
-    L --> O[Network Support]
-    L --> P[Security Team]
-    L --> Q[Database]
-    L --> R[Clinical IT Support]
-    L --> S[Software]
-
-    M --> T[AI Assignment Round Robin Table]
-    K --> U[ServiceNow SLA Engine]
-```
+GitHub: https://github.com/mathioya2000
