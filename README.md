@@ -253,3 +253,34 @@ This project demonstrates:
 - incident clustering
 - dashboard analytics
 - deployment to cloud hosting
+
+---
+
+## Architecture Diagram
+
+
+flowchart TD
+    A[ServiceNow Incident Created] --> B[Business Rule: AI Incident Auto Triage]
+    B --> C[REST Message: Triage Incident]
+    C --> D[ngrok Public Endpoint]
+    D --> E[FastAPI Backend]
+    E --> F[OpenAI Decision Engine]
+    F --> G[Structured JSON Response]
+
+    G --> H[Update Work Notes]
+    G --> I[Set Impact]
+    G --> J[Set Urgency]
+    G --> K[Set Priority]
+    G --> L[Route Assignment Group]
+    G --> M[Round-Robin Technician Assignment]
+
+    L --> N[Service Desk]
+    L --> O[Network Support]
+    L --> P[Security Team]
+    L --> Q[Database]
+    L --> R[Clinical IT Support]
+    L --> S[Software]
+
+    M --> T[AI Assignment Round Robin Table]
+    K --> U[ServiceNow SLA Engine]
+```
