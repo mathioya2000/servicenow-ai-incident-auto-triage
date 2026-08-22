@@ -1,91 +1,53 @@
-# Joseph Mwangi
+# ServiceNow AI Incident Auto-Triage & Intelligent Routing
 
-## ServiceNow Developer | ServiceNow Administrator | AI Integration Engineer
+A ServiceNow portfolio project that uses AI to analyze incoming incidents, recommend priority, route work to the appropriate assignment group, and support faster incident resolution.
 
-I build enterprise workflow automation solutions combining ServiceNow, AI, APIs, and operational intelligence.
+## Project Overview
 
-Focused on:
-- ServiceNow ITSM automation
-- AI-powered incident management
-- CMDB / CSDM intelligence
-- OpenAI integrations
-- FastAPI backend development
-- workflow automation
-- enterprise AI assistants
+Service desks often receive incidents with incomplete descriptions, incorrect priorities, and inconsistent assignment groups. This solution demonstrates how ServiceNow can integrate with an AI service to improve incident triage while keeping the final workflow inside ServiceNow.
 
----
+## Key Features
 
-## Featured Projects
+- AI-assisted incident classification
+- Priority recommendation based on impact and urgency
+- Suggested assignment group
+- Intelligent incident routing
+- SLA-aware triage support
+- Round-robin technician assignment
+- Incident summarization
+- Structured AI response handling
+- ServiceNow record updates
+- Error handling and processing-status tracking
 
-### ServiceNow AI Incident Auto-Triage & Intelligent Routing
-AI-powered incident classification, priority recommendation, intelligent routing, SLA-aware triage, and round-robin technician assignment.
+## Workflow
 
-Tech:
-ServiceNow, Business Rules, RESTMessageV2, GlideRecord, FastAPI, OpenAI API, Python
+1. An incident is created or updated in ServiceNow.
+2. A Business Rule prepares the incident information.
+3. RESTMessageV2 sends the incident data to the FastAPI service.
+4. The FastAPI service sends a structured prompt to the OpenAI API.
+5. The AI returns classification, priority, routing, and support recommendations.
+6. ServiceNow processes the response using GlideRecord.
+7. The incident is updated with the recommended triage information.
 
-Repository:
-https://github.com/mathioya2000/servicenow-ai-incident-auto-triage
+## Architecture
 
----
-
-### ServiceNow AI Incident Copilot
-AI assistant for incident summarization, triage support, business impact reasoning, and troubleshooting guidance.
-
-Repository:
-https://github.com/mathioya2000/servicenow-ai-incident-copilot
-
----
-
-### ServiceNow AI CMDB Impact Analyzer
-AI-assisted CMDB dependency and impact analysis for operational decision-making.
-
-Repository:
-https://github.com/mathioya2000/servicenow-ai-cmdb-impact-analyzer
-
----
-
-### ServiceNow AI Change Risk Advisor
-AI-assisted change risk analysis for smarter change management decisions.
-
----
-
-### ServiceNow AI Problem RCA Assistant
-AI-powered root cause analysis support for recurring incident investigation.
-
----
-
-### ServiceNow AI Virtual Agent / Employee Support Assistant
-AI-powered employee self-service support assistant.
-
----
-
-## Core Skills
-
-ServiceNow  
-ITSM  
-Incident Management  
-Problem Management  
-Change Management  
-CMDB  
-CSDM  
-Business Rules  
-REST APIs  
-GlideRecord  
-FastAPI  
-Python  
-OpenAI API  
-Prompt Engineering  
-AI Workflow Automation  
-Enterprise Integrations  
-
----
-
-## Currently Building
-
-Enterprise AI automation projects that combine ServiceNow operational workflows with modern AI decision support.
-
----
-
-## Contact
-
-GitHub: https://github.com/mathioya2000
+```text
+ServiceNow Incident
+        |
+        v
+Business Rule
+        |
+        v
+RESTMessageV2
+        |
+        v
+FastAPI Integration Service
+        |
+        v
+OpenAI API
+        |
+        v
+Structured AI Response
+        |
+        v
+ServiceNow Incident Update
